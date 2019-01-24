@@ -6798,3 +6798,24 @@ Cannot render console from 24.189.64.248! Allowed networks: 127.0.0.1, ::1, 127.
 Processing by PostsController#new as HTML
   Rendered posts/new.html.erb within layouts/application (47.3ms)
 Completed 200 OK in 88ms (Views: 85.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/posts" for 24.189.64.248 at 2019-01-24 04:12:06 +0000
+Cannot render console from 24.189.64.248! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"YTl68JznBqzRZBPf7yghcihA1zSi2LmPWug8II8DDHTXqyepNMsj++69F/kVHFra6+au/gW/Glm5C8VOeMlvxQ==", "post"=>{"title"=>"this is a title", "description"=>"this is the description"}, "commit"=>"Create Post"}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "posts" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["title", "this is a title"], ["description", "this is the description"], ["created_at", "2019-01-24 04:12:06.553191"], ["updated_at", "2019-01-24 04:12:06.553191"]]
+  [1m[36m (100.1ms)[0m  [1mcommit transaction[0m
+Redirected to http://192.241.157.192:34514/posts/15
+Completed 302 Found in 109ms (ActiveRecord: 100.6ms)
+
+
+Started GET "/posts/15" for 24.189.64.248 at 2019-01-24 04:12:06 +0000
+Cannot render console from 24.189.64.248! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"15"}
+  [1m[35mPost Load (0.2ms)[0m  SELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1  [["id", 15]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1[0m  [["id", "15"]]
+  Rendered posts/show.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 38ms (Views: 35.3ms | ActiveRecord: 0.2ms)
